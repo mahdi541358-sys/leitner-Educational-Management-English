@@ -1,0 +1,6 @@
+{
+  "appId": "com.yaghoobikhah.leitnerbox",
+  "appName": "جعبه لایتنر درس زبان انگلیسی تخصصی پیشرفته - رشته مدیریت آموزشی",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}

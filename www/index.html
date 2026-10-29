@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>جعبه لایتنر درس زبان انگلیسی تخصصی پیشرفته - رشته مدیریت آموزشی</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="title">جعبه لایتنر · زبان تخصصی پیشرفته</div>
+  <button id="themeBtn" class="icon-btn" aria-label="تغییر تم">🌙</button>
+</header>
+
+<main>
+  <!-- مطالعه -->
+  <section id="tab-study" class="tab active">
+    <div class="stats" id="boxStats"></div>
+    <div id="studyArea"></div>
+  </section>
+
+  <!-- افزودن -->
+  <section id="tab-add" class="tab">
+    <div class="panel">
+      <h3>افزودن تکی</h3>
+      <input id="fWord" dir="ltr" placeholder="لغت / اصطلاح انگلیسی" autocomplete="off">
+      <input id="fM1" placeholder="معنی اول">
+      <input id="fM2" placeholder="معنی دوم (اختیاری)">
+      <input id="fPron" dir="ltr" placeholder="تلفظ، مثال: /əˈtʃiːv/ (اختیاری)">
+      <input id="fSess" placeholder="جلسه، مثال: جلسه ششم (اختیاری)">
+      <button class="btn primary" id="addOne">➕ افزودن</button>
+    </div>
+
+    <div class="panel">
+      <h3>افزودن لیستی (درون برنامه)</h3>
+      <p class="hint">هر خط یک مورد؛ ستون‌ها را با Tab یا | یا ویرگول جدا کنید. ترتیب ستون‌ها:<br>
+      <b>لغت | معنی اول | معنی دوم | تلفظ | جلسه</b><br>
+      می‌توانید سطرها را مستقیم از اکسل کپی و اینجا Paste کنید.</p>
+      <textarea id="bulkText" rows="7" dir="auto" placeholder="achieve&#9;دست یافتن&#9;محقق کردن&#9;/əˈtʃiːv/&#9;جلسه اول"></textarea>
+      <button class="btn primary" id="addBulk">📋 افزودن لیست</button>
+    </div>
+
+    <div class="panel">
+      <h3>افزودن از فایل اکسل</h3>
+      <p class="hint">یک فایل اکسل (xlsx / xls / csv) انتخاب کنید. ردیف اول می‌تواند عنوان ستون‌ها باشد:
+      لغت، معنی اول، معنی دوم، تلفظ، جلسه. لغت‌های تکراری اضافه نمی‌شوند.</p>
+      <input type="file" id="xlsxFile" accept=".xlsx,.xls,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" hidden>
+      <button class="btn accent" id="pickFile">📂 انتخاب فایل اکسل</button>
+    </div>
+    <div id="addMsg" class="msg"></div>
+  </section>
+
+  <!-- لغات -->
+  <section id="tab-list" class="tab">
+    <input id="search" placeholder="🔍 جستجو در لغات..." class="search">
+    <div class="hint" id="listCount"></div>
+    <div id="listArea"></div>
+  </section>
+
+  <!-- اطلاعات برنامه -->
+  <section id="tab-info" class="tab">
+    <div class="panel">
+      <h3>🎨 تم برنامه</h3>
+      <div class="seg" id="themeSeg">
+        <button data-t="light">☀️ روشن</button>
+        <button data-t="dark">🌙 تیره</button>
+        <button data-t="auto">📱 خودکار</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>⚙️ تنظیمات مطالعه</h3>
+      <label class="row">تعداد کارت در هر نوبت مطالعه
+        <input type="number" id="sessSize" min="5" max="200" style="width:90px">
+      </label>
+      <button class="btn danger" id="resetProg">بازنشانی پیشرفت (همهٔ کارت‌ها به جعبهٔ ۱)</button>
+    </div>
+    <div class="panel about">
+      <h3>ℹ️ اطلاعات برنامه</h3>
+      <img src="icon.png" alt="logo" class="logo">
+      <div class="appname">جعبه لایتنر درس زبان انگلیسی تخصصی پیشرفته - رشته مدیریت آموزشی</div>
+      <table>
+        <tr><th>مالک برنامه</th><td>مهدی یعقوبی خواه</td></tr>
+        <tr><th>تاریخ تولید (میلادی)</th><td dir="ltr" style="text-align:right">2026-10-29</td></tr>
+        <tr><th>استاد درس</th><td>دکتر حسام حاجی میرآقا</td></tr>
+        <tr><th>کاربردها و اهداف</th><td>به منظور به یاد سپاری لغات و اصطلاحات و تعاریف دروس مدیریت آموزشی – مقطع دکترا</td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+
+<nav class="bottom">
+  <button data-tab="study" class="active"><span>📖</span>مطالعه</button>
+  <button data-tab="add"><span>➕</span>افزودن</button>
+  <button data-tab="list"><span>🗂️</span>لغات</button>
+  <button data-tab="info"><span>ℹ️</span>اطلاعات برنامه</button>
+</nav>
+
+<script src="xlsx.full.min.js"></script>
+<script src="words.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
