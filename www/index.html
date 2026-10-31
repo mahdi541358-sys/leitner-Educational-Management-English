@@ -1,102 +1,531 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>جعبه لایتنر درس زبان انگلیسی تخصصی پیشرفته - رشته مدیریت آموزشی</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>جعبه لایتنر تعاریف رشته مدیریت آموزشی - مقطع دکترا</title>
+<script>
+window.__applyTheme=function(pref){
+  var r=pref==='dark'||pref==='light'?pref:((window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');
+  document.documentElement.setAttribute('data-theme',r);return r;
+};
+try{window.__applyTheme(localStorage.getItem('lbx_theme')||'auto')}catch(e){window.__applyTheme('auto')}
+</script>
+<style>
+:root{
+  --navy:#12305a; --navy2:#1d4f91; --gold:#c9a227; --bg:#f4f1ea; --card:#ffffff;
+  --text:#1c2433; --muted:#6a7385; --ok:#2e7d4f; --bad:#b83a3a; --line:#e2ddd0;
+  --btn:#12305a; --chip:#eee8d8; --en:#35507a; --srcbg:#fbf7e8; --srcline:#e7d9a0; --srch:#7a5f08;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#0f1520; --card:#182131; --text:#e7eaf1; --muted:#98a3b8; --line:#2a3447;
+  --navy:#9cc2f5; --btn:#2d5ea8; --chip:#243049; --en:#a9c4ee;
+  --srcbg:#2a2614; --srcline:#6b5a1c; --srch:#e8c75a; --ok:#349a60; --bad:#cf5555;
+  color-scheme:dark;
+}
+header button{margin-inline-start:auto;border:0;background:rgba(255,255,255,.16);color:#fff;
+  width:38px;height:38px;border-radius:50%;font-size:18px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);
+  font-family:"Vazirmatn","Noto Sans Arabic","Segoe UI",Tahoma,Roboto,sans-serif;font-size:16px}
+body{display:flex;flex-direction:column}
+header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;
+  padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;display:flex;align-items:center;gap:10px}
+header img{width:34px;height:34px;border-radius:8px}
+header .ttl{font-size:14px;line-height:1.5;font-weight:bold}
+main{flex:1;overflow-y:auto;padding:14px 14px 20px}
+nav{display:flex;background:var(--card);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+nav button{flex:1;border:0;background:none;padding:8px 2px 7px;font:inherit;font-size:11.5px;color:var(--muted)}
+nav button .ic{display:block;font-size:20px;line-height:1.2}
+nav button.on{color:var(--navy);font-weight:bold;box-shadow:inset 0 3px 0 var(--gold)}
+.screen{display:none}.screen.on{display:block}
+.panel{background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+h3{margin:0 0 10px;color:var(--navy);font-size:17px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+input,select,textarea{width:100%;font:inherit;font-size:15px;padding:10px;border:1px solid var(--line);
+  border-radius:10px;background:var(--card);color:var(--text)}
+textarea{min-height:90px;resize:vertical}
+button.btn{font:inherit;font-size:15px;border:0;border-radius:10px;padding:11px 16px;background:var(--btn);color:#fff}
+button.btn.gold{background:var(--gold);color:#222}
+button.btn.ghost{background:var(--chip);color:var(--navy)}
+button.btn.red{background:var(--bad)}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1}
+.chip{display:inline-block;background:var(--chip);color:var(--navy);border-radius:20px;padding:3px 10px;font-size:12px;margin:2px}
+.muted{color:var(--muted);font-size:13px;line-height:1.8}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tabs button{flex:1;font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 4px;color:var(--navy)}
+.tabs button.on{background:var(--btn);color:#fff;border-color:var(--btn)}
+/* study card */
+.top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:8px}
+.flt{display:flex;flex-wrap:wrap;margin-bottom:8px}
+.fc{background:var(--card);border-radius:18px;padding:22px 18px;min-height:260px;
+  box-shadow:0 3px 12px rgba(18,48,90,.16);border-top:5px solid var(--gold);cursor:pointer;user-select:none}
+.term{font-size:28px;font-weight:bold;color:var(--navy);text-align:center;line-height:1.7}
+.en{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);text-align:center;direction:ltr;
+  white-space:pre-line;color:var(--en);font-size:18px;line-height:1.6}
+.spk{display:flex;gap:8px;justify-content:center;margin-top:12px;direction:rtl}
+.spk button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--chip);color:var(--navy);
+  border-radius:20px;padding:8px 14px}
+.spk button:active{background:var(--btn);color:#fff}
+.def{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:18px;line-height:2.1;text-align:justify}
+.hint{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+.meta{margin-top:16px;padding-top:10px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.9}
+.meta b{color:var(--navy);font-size:14px}
+.src{margin-top:12px;background:var(--srcbg);border:1px solid var(--srcline);border-radius:12px;padding:12px;cursor:pointer}
+.src .h{font-weight:bold;color:var(--srch)}
+.src .b{margin-top:8px;font-size:14px;line-height:1.9;display:none}
+.src.open .b{display:block}
+.rate{display:flex;gap:10px;margin-top:12px}
+.rate button{flex:1;font:inherit;font-size:16px;border:0;border-radius:12px;padding:14px 6px;color:#fff}
+.rate .k{background:var(--ok)}.rate .n{background:var(--bad)}
+.empty{text-align:center;padding:30px 10px}
+.empty .big{font-size:42px}
+.boxes{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:6px 0 14px}
+.bx{background:var(--card);border:2px solid var(--line);border-radius:10px;text-align:center;padding:8px 2px}
+.bx .n{font-size:22px;font-weight:bold;color:var(--navy)}.bx .t{font-size:11px;color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:#222;color:#fff;
+  padding:10px 16px;border-radius:20px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:9;max-width:90%;text-align:center}
+.toast.show{opacity:.95}
+.del{background:none;border:0;color:var(--bad);font:inherit;font-size:12px;padding:6px 0}
+table.info{width:100%;border-collapse:collapse;font-size:14px}
+table.info td{padding:9px 4px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.8}
+table.info td:first-child{color:var(--muted);white-space:nowrap;padding-left:10px}
+</style>
 </head>
 <body>
-<header class="topbar">
-  <div class="title">جعبه لایتنر · زبان تخصصی پیشرفته</div>
-  <button id="themeBtn" class="icon-btn" aria-label="تغییر تم">🌙</button>
+<header>
+  <img src="icon.png" alt="">
+  <div class="ttl">جعبه لایتنر تعاریف رشته مدیریت آموزشی - مقطع دکترا</div>
+  <button id="theme-btn" aria-label="تغییر تم">🌙</button>
 </header>
 
 <main>
-  <!-- مطالعه -->
-  <section id="tab-study" class="tab active">
-    <div class="stats" id="boxStats"></div>
-    <div id="studyArea"></div>
+  <!-- STUDY -->
+  <section class="screen on" id="s-study"></section>
+
+  <!-- FILTER -->
+  <section class="screen" id="s-filter">
+    <div class="panel">
+      <h3>فیلتر مطالعه</h3>
+      <div class="muted">درس، فصل یا منبعی را که زودتر امتحان دارد انتخاب کنید تا فقط همان موارد مطالعه شود. هر سه فیلتر قابل ترکیب‌اند.</div>
+      <label>عنوان درس</label><select id="f-l"></select>
+      <label>عنوان فصل</label><select id="f-c"></select>
+      <label>منبع</label><select id="f-s"></select>
+      <label>تعداد کارت در هر دور مطالعه</label>
+      <select id="f-n"><option value="10">۱۰ کارت</option><option value="20">۲۰ کارت</option><option value="30">۳۰ کارت</option><option value="50">۵۰ کارت</option><option value="0">همه</option></select>
+      <p class="muted" id="f-count"></p>
+      <div class="row"><button class="btn gold" id="f-go">شروع مطالعه با این فیلتر</button><button class="btn ghost" id="f-clear">حذف فیلترها</button></div>
+    </div>
   </section>
 
-  <!-- افزودن -->
-  <section id="tab-add" class="tab">
-    <div class="panel">
-      <h3>افزودن تکی</h3>
-      <input id="fWord" dir="ltr" placeholder="لغت / اصطلاح انگلیسی" autocomplete="off">
-      <input id="fM1" placeholder="معنی اول">
-      <input id="fM2" placeholder="معنی دوم (اختیاری)">
-      <input id="fPron" dir="ltr" placeholder="تلفظ، مثال: /əˈtʃiːv/ (اختیاری)">
-      <input id="fSess" placeholder="جلسه، مثال: جلسه ششم (اختیاری)">
-      <button class="btn primary" id="addOne">➕ افزودن</button>
+  <!-- ADD -->
+  <section class="screen" id="s-add">
+    <div class="tabs">
+      <button data-t="one" class="on">افزودن تکی</button>
+      <button data-t="list">افزودن لیستی</button>
+      <button data-t="xls">فایل اکسل</button>
     </div>
-
-    <div class="panel">
-      <h3>افزودن لیستی (درون برنامه)</h3>
-      <p class="hint">هر خط یک مورد؛ ستون‌ها را با Tab یا | یا ویرگول جدا کنید. ترتیب ستون‌ها:<br>
-      <b>لغت | معنی اول | معنی دوم | تلفظ | جلسه</b><br>
-      می‌توانید سطرها را مستقیم از اکسل کپی و اینجا Paste کنید.</p>
-      <textarea id="bulkText" rows="7" dir="auto" placeholder="achieve&#9;دست یافتن&#9;محقق کردن&#9;/əˈtʃiːv/&#9;جلسه اول"></textarea>
-      <button class="btn primary" id="addBulk">📋 افزودن لیست</button>
+    <div class="panel" id="a-one">
+      <label>واژه *</label><input id="n-t">
+      <label>معنی انگلیسی (اختیاری)</label><input id="n-e" dir="ltr" style="text-align:left">
+      <label>تعریف *</label><textarea id="n-d"></textarea>
+      <label>عنوان درس</label><input id="n-l" list="dl-l">
+      <label>عنوان فصل</label><input id="n-c" list="dl-c">
+      <label>منبع (توضیح تکمیل)</label><textarea id="n-s" style="min-height:60px"></textarea>
+      <datalist id="dl-l"></datalist><datalist id="dl-c"></datalist>
+      <p><button class="btn" id="n-add">افزودن به جعبه</button></p>
     </div>
-
-    <div class="panel">
-      <h3>افزودن از فایل اکسل</h3>
-      <p class="hint">یک فایل اکسل (xlsx / xls / csv) انتخاب کنید. ردیف اول می‌تواند عنوان ستون‌ها باشد:
-      لغت، معنی اول، معنی دوم، تلفظ، جلسه. لغت‌های تکراری اضافه نمی‌شوند.</p>
-      <input type="file" id="xlsxFile" accept=".xlsx,.xls,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" hidden>
-      <button class="btn accent" id="pickFile">📂 انتخاب فایل اکسل</button>
+    <div class="panel" id="a-list" style="display:none">
+      <div class="muted">هر خط یک مورد است. ستون‌ها را با «Tab» (کپی مستقیم از اکسل) یا با «|» جدا کنید. ترتیب ستون‌ها:<br>
+      <b>واژه | انگلیسی | تعریف | منبع | عنوان درس | عنوان فصل</b></div>
+      <textarea id="l-text" style="min-height:200px" placeholder="مثال:&#10;ابطال‌پذیری | Falsifiability | ویژگی ادعاهای علمی... | منبع | روش تحقیق | فصل 1"></textarea>
+      <p><button class="btn" id="l-add">افزودن لیست</button></p>
     </div>
-    <div id="addMsg" class="msg"></div>
+    <div class="panel" id="a-xls" style="display:none">
+      <div class="muted">یک فایل اکسل (xlsx) انتخاب کنید که ردیف اول آن عنوان ستون‌ها باشد: <b>واژه، انگلیسی، تعریف، منبع، عنوان درس، عنوان فصل</b>. مواردی که از قبل وجود دارند تکرار نمی‌شوند.</div>
+      <p><input type="file" id="x-file" accept=".xlsx,.xls,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv"></p>
+      <p class="muted" id="x-msg"></p>
+    </div>
   </section>
 
-  <!-- لغات -->
-  <section id="tab-list" class="tab">
-    <input id="search" placeholder="🔍 جستجو در لغات..." class="search">
-    <div class="hint" id="listCount"></div>
-    <div id="listArea"></div>
-  </section>
+  <!-- BOXES -->
+  <section class="screen" id="s-boxes"></section>
 
-  <!-- اطلاعات برنامه -->
-  <section id="tab-info" class="tab">
+  <!-- INFO -->
+  <section class="screen" id="s-info">
+    <div class="panel" style="text-align:center"><img src="icon.png" alt="" style="width:96px;height:96px;border-radius:20px"></div>
     <div class="panel">
-      <h3>🎨 تم برنامه</h3>
-      <div class="seg" id="themeSeg">
-        <button data-t="light">☀️ روشن</button>
-        <button data-t="dark">🌙 تیره</button>
-        <button data-t="auto">📱 خودکار</button>
-      </div>
-    </div>
-    <div class="panel">
-      <h3>⚙️ تنظیمات مطالعه</h3>
-      <label class="row">تعداد کارت در هر نوبت مطالعه
-        <input type="number" id="sessSize" min="5" max="200" style="width:90px">
-      </label>
-      <button class="btn danger" id="resetProg">بازنشانی پیشرفت (همهٔ کارت‌ها به جعبهٔ ۱)</button>
-    </div>
-    <div class="panel about">
-      <h3>ℹ️ اطلاعات برنامه</h3>
-      <img src="icon.png" alt="logo" class="logo">
-      <div class="appname">جعبه لایتنر درس زبان انگلیسی تخصصی پیشرفته - رشته مدیریت آموزشی</div>
-      <table>
-        <tr><th>مالک برنامه</th><td>مهدی یعقوبی خواه</td></tr>
-        <tr><th>تاریخ تولید (میلادی)</th><td dir="ltr" style="text-align:right">2026-10-29</td></tr>
-        <tr><th>استاد درس</th><td>دکتر حسام حاجی میرآقا</td></tr>
-        <tr><th>کاربردها و اهداف</th><td>به منظور به یاد سپاری لغات و اصطلاحات و تعاریف دروس مدیریت آموزشی – مقطع دکترا</td></tr>
+      <h3>اطلاعات برنامه</h3>
+      <table class="info">
+        <tr><td>نام برنامه</td><td>جعبه لایتنر تعاریف رشته مدیریت آموزشی - مقطع دکترا</td></tr>
+        <tr><td>مالک برنامه</td><td>مهدی یعقوبی خواه</td></tr>
+        <tr><td>تاریخ تولید (میلادی)</td><td dir="ltr" style="text-align:right">2026-10-29</td></tr>
+        <tr><td>کاربردها و اهداف</td><td>به منظور به یاد سپاری لغات و اصطلاحات و تعاریف دروس مدیریت آموزشی – مقطع دکترا</td></tr>
+        <tr><td>تعداد کارت‌ها</td><td id="i-count"></td></tr>
       </table>
+    </div>
+    <div class="panel">
+      <h3>تم برنامه</h3>
+      <select id="i-theme"><option value="auto">خودکار (مطابق تنظیمات گوشی)</option><option value="light">روشن</option><option value="dark">تیره</option></select>
+    </div>
+    <div class="panel">
+      <h3>بازنشانی</h3>
+      <div class="muted">پیشرفت همهٔ کارت‌ها به جعبهٔ اول برمی‌گردد (کارت‌ها حذف نمی‌شوند).</div>
+      <p><button class="btn red" id="i-reset">بازنشانی پیشرفت</button></p>
     </div>
   </section>
 </main>
 
-<nav class="bottom">
-  <button data-tab="study" class="active"><span>📖</span>مطالعه</button>
-  <button data-tab="add"><span>➕</span>افزودن</button>
-  <button data-tab="list"><span>🗂️</span>لغات</button>
-  <button data-tab="info"><span>ℹ️</span>اطلاعات برنامه</button>
+<nav id="nav">
+  <button data-s="study" class="on"><span class="ic">📖</span>مطالعه</button>
+  <button data-s="filter"><span class="ic">🎯</span>فیلتر</button>
+  <button data-s="add"><span class="ic">➕</span>افزودن</button>
+  <button data-s="boxes"><span class="ic">🗃️</span>جعبه‌ها</button>
+  <button data-s="info"><span class="ic">ℹ️</span>اطلاعات</button>
 </nav>
+<div class="toast" id="toast"></div>
 
+<script src="data.js"></script>
 <script src="xlsx.full.min.js"></script>
-<script src="words.js"></script>
-<script src="app.js"></script>
+<script>
+(function(){
+'use strict';
+var KEY_CARDS='lbx_cards_v1', KEY_SET='lbx_settings_v1';
+var INTERVALS=[0,0,1,3,7,14];           // days until due, index = box number (1..5)
+var BOX_NAMES=['','جعبه ۱','جعبه ۲','جعبه ۳','جعبه ۴','جعبه ۵'];
+var $=function(id){return document.getElementById(id)};
+
+function today(){var d=new Date();return Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/86400000)}
+function uid(){return 'c'+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function norm(s){return String(s||'').replace(/[\u200c\u200f\u200e]/g,'').replace(/\s+/g,' ').trim().toLowerCase()}
+function mk(t,e,d,s,l,c){return {id:uid(),t:t,e:e,d:d,s:s,l:l||'سایر',c:c||'',b:1,due:0}}
+
+/* ---------- storage ---------- */
+var mem={};
+function sget(k){try{return localStorage.getItem(k)}catch(e){return mem[k]||null}}
+function sset(k,v){try{localStorage.setItem(k,v)}catch(e){mem[k]=v}}
+var cards;
+(function(){
+  var raw=sget(KEY_CARDS);
+  if(raw){try{cards=JSON.parse(raw)}catch(e){cards=null}}
+  if(!cards){cards=(window.DATA||[]).map(function(r){return mk(r[0],r[1],r[2],r[3],r[4],r[5])});saveCards()}
+})();
+function saveCards(){sset(KEY_CARDS,JSON.stringify(cards))}
+var settings={l:'',c:'',s:'',n:20};
+try{var st=JSON.parse(sget(KEY_SET)||'null');if(st)for(var k in st)settings[k]=st[k]}catch(e){}
+var dirty=false;
+function saveSettings(){dirty=true;sset(KEY_SET,JSON.stringify(settings))}
+
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(function(){t.classList.remove('show')},2600)}
+function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+function uniq(a){var o={},r=[];a.forEach(function(x){if(x&&!o[x]){o[x]=1;r.push(x)}});return r}
+function fa(n){return String(n).replace(/\d/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'[d]})}
+
+/* ---------- filtering ---------- */
+function matched(ex){
+  return cards.filter(function(c){
+    if(settings.l&&c.l!==settings.l&&ex!=='l')return false;
+    if(settings.c&&c.c!==settings.c&&ex!=='c')return false;
+    if(settings.s&&c.s!==settings.s&&ex!=='s')return false;
+    return true;
+  });
+}
+function fillSelect(sel,vals,cur,allLabel){
+  sel.innerHTML='';
+  var o=el('option',null,allLabel);o.value='';sel.appendChild(o);
+  vals.forEach(function(v){var p=el('option',null,v.length>70?v.slice(0,70)+'…':v);p.value=v;sel.appendChild(p)});
+  sel.value=vals.indexOf(cur)>=0?cur:'';
+}
+function renderFilter(){
+  var L=uniq(cards.map(function(c){return c.l}));
+  var C=uniq(cards.filter(function(c){return !settings.l||c.l===settings.l}).map(function(c){return c.c}));
+  var S=uniq(cards.filter(function(c){return (!settings.l||c.l===settings.l)&&(!settings.c||c.c===settings.c)}).map(function(c){return c.s}));
+  if(settings.c&&C.indexOf(settings.c)<0)settings.c='';
+  if(settings.s&&S.indexOf(settings.s)<0)settings.s='';
+  fillSelect($('f-l'),L,settings.l,'همه دروس');
+  fillSelect($('f-c'),C,settings.c,'همه فصل‌ها');
+  fillSelect($('f-s'),S,settings.s,'همه منابع');
+  $('f-n').value=String(settings.n);
+  $('f-count').textContent='تعداد کارت‌های منطبق با فیلتر: '+fa(matched().length)+' از '+fa(cards.length);
+  var dl=$('dl-l');dl.innerHTML='';L.forEach(function(v){var o=el('option');o.value=v;dl.appendChild(o)});
+  var dc=$('dl-c');dc.innerHTML='';uniq(cards.map(function(c){return c.c})).forEach(function(v){var o=el('option');o.value=v;dc.appendChild(o)});
+}
+$('f-l').onchange=function(){settings.l=this.value;settings.c='';settings.s='';saveSettings();renderFilter()};
+$('f-c').onchange=function(){settings.c=this.value;settings.s='';saveSettings();renderFilter()};
+$('f-s').onchange=function(){settings.s=this.value;saveSettings();renderFilter()};
+$('f-n').onchange=function(){settings.n=parseInt(this.value,10);saveSettings()};
+$('f-clear').onclick=function(){settings.l=settings.c=settings.s='';saveSettings();renderFilter();toast('فیلترها حذف شد')};
+$('f-go').onclick=function(){startRound(false);show('study')};
+
+/* ---------- study ---------- */
+var queue=[],pos=0,stage=0,retry={},ignoreDue=false,srcOpen=false,done=0;
+function cardById(id){for(var i=0;i<cards.length;i++)if(cards[i].id===id)return cards[i];return null}
+function startRound(ign){
+  dirty=false;ignoreDue=!!ign;
+  var t=today();
+  var idx={};cards.forEach(function(c,i){idx[c.id]=i});
+  var list=matched().filter(function(c){return ignoreDue||c.due<=t});
+  list.sort(function(a,b){return (a.b-b.b)||(idx[a.id]-idx[b.id])});
+  if(settings.n>0)list=list.slice(0,settings.n);
+  queue=list.map(function(c){return c.id});pos=0;stage=0;retry={};srcOpen=false;done=0;
+  renderStudy();
+}
+function filterChips(box){
+  var any=false;
+  [['l','درس'],['c','فصل'],['s','منبع']].forEach(function(p){
+    if(settings[p[0]]){any=true;var s=settings[p[0]];box.appendChild(el('span','chip',p[1]+': '+(s.length>40?s.slice(0,40)+'…':s)))}
+  });
+  if(!any)box.appendChild(el('span','chip','همهٔ کارت‌ها'));
+}
+function renderStudy(){
+  var root=$('s-study');root.innerHTML='';
+  var flt=el('div','flt');filterChips(flt);
+  if(pos>=queue.length){
+    root.appendChild(flt);
+    var p=el('div','panel empty');
+    var total=matched().length;
+    if(!total){
+      p.appendChild(el('div','big','🔍'));
+      p.appendChild(el('h3',null,'کارتی با این فیلتر وجود ندارد'));
+    }else{
+      p.appendChild(el('div','big',done?'🎉':'✅'));
+      p.appendChild(el('h3',null,done?'این دور مطالعه تمام شد':'کارت سررسیدی برای مرور نیست'));
+      p.appendChild(el('div','muted',done?('تعداد کارت مرورشده: '+fa(done)):'همهٔ کارت‌های این فیلتر در جعبه‌ها منتظر موعد مرور بعدی هستند.'));
+      var r=el('div','row');r.style.marginTop='14px';
+      var b1=el('button','btn gold','دور بعدی (کارت‌های سررسید)');b1.onclick=function(){startRound(false)};
+      var b2=el('button','btn ghost','مطالعهٔ آزاد (بدون توجه به موعد)');b2.onclick=function(){startRound(true)};
+      r.appendChild(b1);r.appendChild(b2);p.appendChild(r);
+    }
+    root.appendChild(p);return;
+  }
+  var c=cardById(queue[pos]);
+  if(!c){pos++;renderStudy();return}
+  var top=el('div','top');
+  top.appendChild(el('span',null,'کارت '+fa(pos+1)+' از '+fa(queue.length)));
+  top.appendChild(el('span',null,BOX_NAMES[c.b]));
+  root.appendChild(top);root.appendChild(flt);
+
+  var fc=el('div','fc');
+  fc.appendChild(el('div','term',c.t));
+  if(stage>=1){
+    var en=el('div','en',c.e||'—');fc.appendChild(en);
+    var w=enWord(c);
+    if(w){
+      var sp=el('div','spk');
+      [['🔊 آمریکایی','en-US'],['🔊 بریتانیایی','en-GB']].forEach(function(o){
+        var b=el('button',null,o[0]);
+        b.onclick=function(ev){ev.stopPropagation();speak(w,o[1])};
+        sp.appendChild(b);
+      });
+      fc.appendChild(sp);
+    }
+  }
+  if(stage>=2){
+    fc.appendChild(el('div','def',c.d));
+    var m=el('div','meta');
+    var b=el('b',null,c.l);m.appendChild(b);
+    if(c.c){m.appendChild(el('br'));m.appendChild(document.createTextNode(c.c))}
+    fc.appendChild(m);
+  }
+  if(stage<2)fc.appendChild(el('div','hint',stage===0?'برای دیدن معنی انگلیسی لمس کنید':'برای دیدن تعریف لمس کنید'));
+  fc.onclick=function(){if(stage<2){stage++;renderStudy()}};
+  root.appendChild(fc);
+
+  if(stage>=2){
+    var rate=el('div','rate');
+    var ok=el('button','k','✓ حفظ بودم');ok.onclick=function(){answer(true)};
+    var no=el('button','n','✗ نیاز به مرور');no.onclick=function(){answer(false)};
+    rate.appendChild(ok);rate.appendChild(no);root.appendChild(rate);
+    var src=el('div','src'+(srcOpen?' open':''));
+    src.appendChild(el('div','h','توضیح تکمیل ▾'));
+    src.appendChild(el('div','b',c.s||'منبعی ثبت نشده است.'));
+    src.onclick=function(){srcOpen=!srcOpen;src.classList.toggle('open',srcOpen)};
+    root.appendChild(src);
+    var del=el('button','del','حذف این کارت');
+    del.onclick=function(){
+      if(confirm('این کارت برای همیشه حذف شود؟')){
+        cards=cards.filter(function(x){return x.id!==c.id});saveCards();
+        queue.splice(pos,1);stage=0;srcOpen=false;renderStudy();
+      }
+    };
+    root.appendChild(del);
+  }
+  window.scrollTo(0,0);$('s-study').parentNode.scrollTop=0;
+}
+function enWord(c){return String(c.e||'').split('\n')[0].replace(/\(.*?\)/g,'').trim()}
+function speak(text,lang){
+  var ss=window.speechSynthesis;
+  if(!ss||typeof SpeechSynthesisUtterance==='undefined'){toast('پخش صدا روی این دستگاه پشتیبانی نمی‌شود');return}
+  try{
+    ss.cancel();
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang=lang;u.rate=0.85;
+    var vs=ss.getVoices?ss.getVoices():[];
+    for(var i=0;i<vs.length;i++){
+      if(String(vs[i].lang).replace('_','-')===lang){u.voice=vs[i];break}
+    }
+    u.onerror=function(){toast('پخش صدا ممکن نشد؛ در تنظیمات گوشی، موتور «تبدیل متن به گفتار» (Google) و صدای انگلیسی را فعال کنید')};
+    ss.speak(u);
+  }catch(e){toast('پخش صدا ممکن نشد')}
+}
+function answer(good){
+  try{if(window.speechSynthesis)window.speechSynthesis.cancel()}catch(e){}
+  var c=cardById(queue[pos]);
+  if(c){
+    var t=today();
+    if(good){
+      if(retry[c.id]){delete retry[c.id]}           // second attempt in same round: no promotion
+      else if(c.b<5){c.b++}
+      c.due=t+INTERVALS[c.b];
+    }else{
+      c.b=1;c.due=t;
+      if(!retry[c.id]){retry[c.id]=1;queue.push(c.id)}  // see it again at end of this round
+    }
+    saveCards();
+  }
+  done++;pos++;stage=0;srcOpen=false;renderStudy();
+}
+
+/* ---------- boxes ---------- */
+function renderBoxes(){
+  var root=$('s-boxes');root.innerHTML='';
+  var t=today(),all=cards,fl=matched();
+  var p=el('div','panel');p.appendChild(el('h3',null,'وضعیت جعبه‌ها'));
+  var flt=el('div','flt');filterChips(flt);p.appendChild(flt);
+  var g=el('div','boxes');
+  for(var b=1;b<=5;b++){
+    var n=fl.filter(function(c){return c.b===b}).length;
+    var bx=el('div','bx');bx.appendChild(el('div','n',fa(n)));bx.appendChild(el('div','t',BOX_NAMES[b]));g.appendChild(bx);
+  }
+  p.appendChild(g);
+  var due=fl.filter(function(c){return c.due<=t}).length;
+  p.appendChild(el('div','muted','کارت‌های سررسید برای مرور (در فیلتر فعلی): '+fa(due)+' • کل کارت‌های فیلتر: '+fa(fl.length)+' • کل مجموعه: '+fa(all.length)));
+  var r=el('div','muted');r.style.marginTop='10px';
+  r.textContent='قانون: پاسخ درست = رفتن به جعبهٔ بعد (موعد مرور: ۱، ۳، ۷ و ۱۴ روز)؛ پاسخ نادرست = بازگشت به جعبهٔ ۱.';
+  p.appendChild(r);root.appendChild(p);
+}
+
+/* ---------- add ---------- */
+function addCards(rows){
+  var seen={};
+  cards.forEach(function(c){seen[norm(c.t)+'|'+norm(c.l)+'|'+norm(c.c)]=1});
+  var added=0,dup=0,bad=0;
+  rows.forEach(function(r){
+    var t=String(r[0]||'').trim(),e=String(r[1]||'').trim(),d=String(r[2]||'').trim(),
+        s=String(r[3]||'').trim(),l=String(r[4]||'').trim(),c=String(r[5]||'').trim();
+    if(!t||!d){bad++;return}
+    var k=norm(t)+'|'+norm(l||'سایر')+'|'+norm(c);
+    if(seen[k]){dup++;return}
+    seen[k]=1;cards.push(mk(t,e,d,s,l,c));added++;
+  });
+  saveCards();renderFilter();
+  return {added:added,dup:dup,bad:bad};
+}
+function resultMsg(r){return fa(r.added)+' مورد اضافه شد'+(r.dup?' • '+fa(r.dup)+' تکراری':'')+(r.bad?' • '+fa(r.bad)+' ردیف ناقص (بدون واژه یا تعریف)':'')}
+var HEAD=['واژه','انگلیسی','تعریف','منبع','عنوان درس','عنوان فصل'];
+function mapRows(rows){
+  rows=rows.filter(function(r){return r&&r.some(function(x){return String(x||'').trim()})});
+  if(!rows.length)return [];
+  var first=rows[0].map(function(x){return String(x||'').trim()});
+  var hasHead=first.indexOf('واژه')>=0;
+  if(!hasHead)return rows;
+  var ix=HEAD.map(function(h,i){var j=first.indexOf(h);return j>=0?j:i});
+  return rows.slice(1).map(function(r){return ix.map(function(j){return r[j]})});
+}
+// TSV parser with quoted multi-line cells (as copied from Excel)
+function parseTSV(text){
+  var rows=[],row=[],cell='',q=false,i=0;
+  text=text.replace(/\r\n?/g,'\n');
+  for(;i<text.length;i++){
+    var ch=text[i];
+    if(q){
+      if(ch==='"'){if(text[i+1]==='"'){cell+='"';i++}else q=false}
+      else cell+=ch;
+    }else if(ch==='"'&&cell===''){q=true}
+    else if(ch==='\t'){row.push(cell);cell=''}
+    else if(ch==='\n'){row.push(cell);rows.push(row);row=[];cell=''}
+    else cell+=ch;
+  }
+  if(cell!==''||row.length){row.push(cell);rows.push(row)}
+  return rows;
+}
+document.querySelectorAll('.tabs button').forEach(function(b){
+  b.onclick=function(){
+    document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x===b)});
+    ['one','list','xls'].forEach(function(t){$('a-'+t).style.display=(t===b.dataset.t)?'block':'none'});
+  };
+});
+$('n-add').onclick=function(){
+  var r=addCards([[$('n-t').value,$('n-e').value,$('n-d').value,$('n-s').value,$('n-l').value,$('n-c').value]]);
+  if(r.added){['n-t','n-e','n-d','n-s'].forEach(function(i){$(i).value=''});toast('کارت اضافه شد')}
+  else toast(r.dup?'این مورد قبلاً وجود دارد':'واژه و تعریف را وارد کنید');
+};
+$('l-add').onclick=function(){
+  var txt=$('l-text').value;
+  if(!txt.trim()){toast('متنی وارد نشده است');return}
+  var rows=txt.indexOf('\t')>=0?parseTSV(txt):txt.split(/\r?\n/).map(function(l){return l.split('|')});
+  var r=addCards(mapRows(rows));
+  if(r.added)$('l-text').value='';
+  toast(resultMsg(r));
+};
+$('x-file').onchange=function(){
+  var f=this.files&&this.files[0];if(!f)return;
+  var msg=$('x-msg');msg.textContent='در حال خواندن فایل…';
+  if(typeof XLSX==='undefined'){msg.textContent='کتابخانهٔ خواندن اکسل بارگذاری نشده است.';return}
+  var rd=new FileReader();
+  rd.onload=function(){
+    try{
+      var wb=XLSX.read(new Uint8Array(rd.result),{type:'array'});
+      var ws=wb.Sheets[wb.SheetNames[0]];
+      var rows=XLSX.utils.sheet_to_json(ws,{header:1,defval:'',raw:false});
+      var r=addCards(mapRows(rows));
+      msg.textContent=resultMsg(r);toast(resultMsg(r));
+    }catch(e){msg.textContent='خواندن فایل ناموفق بود: '+e.message}
+    $('x-file').value='';
+  };
+  rd.onerror=function(){msg.textContent='خواندن فایل ناموفق بود.'};
+  rd.readAsArrayBuffer(f);
+};
+
+/* ---------- info ---------- */
+$('i-reset').onclick=function(){
+  if(confirm('پیشرفت همهٔ کارت‌ها به جعبهٔ ۱ برگردد؟')){
+    cards.forEach(function(c){c.b=1;c.due=0});saveCards();startRound(false);toast('پیشرفت بازنشانی شد');
+  }
+};
+
+/* ---------- theme ---------- */
+var themePref=sget('lbx_theme')||'auto';
+function paintTheme(){
+  var r=window.__applyTheme(themePref);
+  $('theme-btn').textContent=r==='dark'?'☀️':'🌙';
+  $('i-theme').value=themePref;
+}
+$('theme-btn').onclick=function(){
+  var cur=document.documentElement.getAttribute('data-theme');
+  themePref=cur==='dark'?'light':'dark';sset('lbx_theme',themePref);paintTheme();
+};
+$('i-theme').onchange=function(){themePref=this.value;sset('lbx_theme',themePref);paintTheme()};
+if(window.matchMedia){try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(themePref==='auto')paintTheme()})}catch(e){}}
+paintTheme();
+
+/* ---------- navigation ---------- */
+function show(name){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.toggle('on',s.id==='s-'+name)});
+  document.querySelectorAll('#nav button').forEach(function(b){b.classList.toggle('on',b.dataset.s===name)});
+  if(name==='filter')renderFilter();
+  if(name==='boxes')renderBoxes();
+  if(name==='info')$('i-count').textContent=fa(cards.length)+' کارت';
+  if(name==='study'&&dirty)startRound(false);
+  document.querySelector('main').scrollTop=0;
+}
+document.querySelectorAll('#nav button').forEach(function(b){b.onclick=function(){show(b.dataset.s)}});
+
+renderFilter();
+startRound(false);
+})();
+</script>
 </body>
 </html>
