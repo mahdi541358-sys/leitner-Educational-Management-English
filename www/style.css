@@ -53,3 +53,15 @@ input:focus,textarea:focus{outline:none;border-color:var(--pri)}
 .bottom button{flex:1;border:0;background:none;padding:8px 2px 9px;font:inherit;font-size:11.5px;color:var(--sub)}
 .bottom button span{display:block;font-size:20px}
 .bottom button.active{color:var(--pri);font-weight:700}
+
+.flash .speak{display:flex;gap:8px;margin-top:12px}
+.flash .speak button{border:1.5px solid var(--pri);background:transparent;color:var(--pri);border-radius:20px;padding:6px 14px;font:inherit;font-size:13px;font-weight:700}
+.flash .speak button:active{background:var(--pri);color:#fff}
+
+.flash .speak{display:none}
+.big-speaker{margin:14px 0 4px;width:92px;height:92px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--pri),var(--pri2));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(14,138,150,.45)}
+.big-speaker:active{transform:scale(.94)}
+.big-speaker svg{width:52px;height:52px;fill:#fff}
+.filterbar{display:flex;align-items:center;gap:8px;margin-bottom:10px;color:var(--sub);font-size:14px}
+select{flex:1;width:100%;padding:10px;border:1.5px solid var(--line);border-radius:11px;background:var(--card);color:var(--text);font:inherit}
+.filterbar select{margin:0}
